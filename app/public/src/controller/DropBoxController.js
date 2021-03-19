@@ -27,6 +27,7 @@ class DropBoxController{
             measurementId: "G-H71HDGMQT4"
         };
         
+    
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
 
@@ -39,7 +40,14 @@ class DropBoxController{
         
         this.inputFilesEl.addEventListener('change', event => {
             
-            this.uploadTaskEl(event.target.files);
+            this.uploadTaskEl(event.target.files).then(responses => {
+
+                responses.forEach(resp => {
+                    console.log(resp.files['input-file']);
+                    this.getFirebaseRef().push().set(resp.files['input-file']);
+                });
+                this.modalShow(false);
+            });
 
             this.modalShow();
 
@@ -48,12 +56,17 @@ class DropBoxController{
         });
     }
 
+    getFirebaseRef(){
+        return firebase.database().ref('files');
+    }
+
     modalShow(show = true){
         this.snackModalEl.style.display = (show) ? 'block' : 'none';
     }
 
     uploadTaskEl(files){
         let promises = []; 
+        
 
         [...files].forEach(file =>{
             promises.push(new Promise((resolve, reject) => {
@@ -63,8 +76,6 @@ class DropBoxController{
 
                 ajax.onload = event => {
                     
-                    this.modalShow(false);
-
                     try {
                         resolve(JSON.parse(ajax.responseText));
                     } catch (e) {
@@ -72,8 +83,6 @@ class DropBoxController{
                     }
                 };
                 ajax.onerror = event => {
-
-                    this.modalShow(false);
 
                     reject(event);
                 };

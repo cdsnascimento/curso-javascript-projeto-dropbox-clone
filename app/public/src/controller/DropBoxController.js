@@ -17,6 +17,8 @@ class DropBoxController{
         this.btnRename = document.querySelector('#btn-rename');
         this.btnDelete = document.querySelector('#btn-delete');
 
+        this.currentFolder = ['dp-clone'];
+
         this.connectFireBase();
 
         this.initEvents();
@@ -47,6 +49,7 @@ class DropBoxController{
     }
 
     removeTask(){
+
         let promises = [];
 
         this.getSelection().forEach( li => {
@@ -68,6 +71,20 @@ class DropBoxController{
     }
 
     initEvents(){
+
+        this.btnNewFolder.addEventListener('click', e=> {
+
+            let name = prompt('Nome da nova pasta:');
+
+            if (name){
+
+                this.getFirebaseRef().push().set({
+                    name,
+                    type: 'folder',
+                    path:this.currentFolder.join('/')
+                })
+            }
+        });
 
         this.btnDelete.addEventListener('click', e => {
 

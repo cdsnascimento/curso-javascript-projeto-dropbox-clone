@@ -528,7 +528,7 @@ class DropBoxController{
                     this.openFolder();
                     break;
                 default:
-                    window.open('/files?path=' + file.path);
+                    window.open('/dp-clone?path=' + file.path);
 
             }
         })

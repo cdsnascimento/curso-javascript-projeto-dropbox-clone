@@ -41,9 +41,10 @@ class DropBoxController{
             measurementId: "G-H71HDGMQT4"
         };
         
-    
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
+
+       firebase.storage();
 
     }
 
@@ -143,20 +144,43 @@ class DropBoxController{
         
         this.inputFilesEl.addEventListener('change', event => {
             
+            this.btnSendFileEl.disabled = true;
+            
+            const storageRef = firebase.storage().ref();
+
             this.uploadTaskEl(event.target.files).then(responses => {
 
                 responses.forEach(resp => {
-                    console.log(resp.files['input-file']);
-                    this.getFirebaseRef().push().set(resp.files['input-file']);
+
+                    storageRef.child(resp.fullPath).getDownloadURL().then((url) => {
+
+                        this.getFirebaseRef().push().set({
+                            name: resp.name,
+                            type: resp.contentType,
+                            path: url
+
+                        }); 
+                    });
                 });
-                this.modalShow(false);
+
+                this.uploadComplete();
+
+            }).catch(err => {
+
+                this.uploadComplete();
+                console.error(err);
+
             });
 
-            this.modalShow();
-
-            this.inputFilesEl.value = '';
+            this.modalShow();     
 
         });
+    }
+
+    uploadComplete() {
+        this.modalShow(false);
+        this.inputFilesEl.value = '';
+        this.btnSendFileEl.disabled = false;
     }
 
     getFirebaseRef(path) {
@@ -180,6 +204,8 @@ class DropBoxController{
 
             ajax.onload = event => {
                 
+                this.modalShow(false);
+
                 try {
                     resolve(JSON.parse(ajax.responseText));
                 } catch (e) {
@@ -187,13 +213,15 @@ class DropBoxController{
                 }
             };
             ajax.onerror = event => {
-
+                this.modalShow(false);
                 reject(event);
             };
 
             ajax.upload.onprogress = onprogress;
 
             onloadstart();
+
+            this.startUploadTime = Date.now();
             
             ajax.send(formData);
         });
@@ -205,19 +233,30 @@ class DropBoxController{
 
         [...files].forEach(file =>{
 
-            let formData = new FormData();
+            promises.push(new Promise((resolve, reject) =>{
 
-            formData.append('input-file', file);
+                let fileRef = firebase.storage().ref(this.currentFolder.join('/')).child(file.name);
 
-            promises.push(this.ajax('/upload', 'POST', formData, () => {
-
-                this.upLoadProgress(event, file);
-
-            }, () => {
-
-                this.startUploadTime = Date.now();
-
+                let task = fileRef.put(file);
+    
+                task.on('state_changed', snapshot =>{
+                    this.upLoadProgress({
+                        loaded: snapshot.bytesTransferred,
+                        total: snapshot.totalBytes
+                    }, file);
+                }, error =>{
+                    console.error(error);
+                    reject(error);
+                }, () =>{
+                    fileRef.getMetadata().then(metadata => {
+                        resolve(metadata);
+                    }).catch(err => {
+                        reject(err);
+                    });
+                });
+    
             }));
+
         });
 
         return Promise.all(promises);

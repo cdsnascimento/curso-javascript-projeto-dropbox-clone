@@ -1,0 +1,121 @@
+[33mcommit ef4d6984cda511c40f7e4b7e837fed4403c5d244[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Thu Mar 25 23:35:04 2021 -0300
+
+    Criando rota para abrir arquivo
+
+[33mcommit 7f4c0e431a544e5fae48da06e8e7df4ed91c0ea3[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Thu Mar 25 19:37:04 2021 -0300
+
+    Navegando nas pastas
+
+[33mcommit 525a375f59ae9757ee1ce3e9f8971624733054fb[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Thu Mar 25 14:39:38 2021 -0300
+
+    105 - Criando pasta
+
+[33mcommit 7548a7fa2e3ca00d952cb24ba24a34d81fa25037[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Wed Mar 24 00:07:41 2021 -0300
+
+    104 - Excluindo arquivos
+
+[33mcommit d409ae0f061c9c2b3429ba45016606cf8f42a395[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Tue Mar 23 22:01:04 2021 -0300
+
+    103 - Renomeando arquivo
+    
+    102 - Menu de opções de acordo com arquivos selecionados
+
+[33mcommit 0de9f7d727885366a415b7f565e06ec039da7eb9[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Fri Mar 19 23:53:32 2021 -0300
+
+    101 - Criando um disparo de Eventos
+
+[33mcommit f32b717406b6e13eb9360107ec22d0b51353f51e[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Fri Mar 19 21:51:06 2021 -0300
+
+    100 - Selecionando Arquivos com CTRL ou SHIFT
+
+[33mcommit 01c523bf9674fb3472e93ecacf41870c1e896f17[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Fri Mar 19 20:30:45 2021 -0300
+
+    99 - Selecionando arquivos
+
+[33mcommit efeebeb4feca91d4a77d3b8a2d61024beff12025[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Fri Mar 19 18:08:55 2021 -0300
+
+    Create index.html
+
+[33mcommit 52568a349372044bc7fccd918de12955598fffb6[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Fri Mar 19 00:03:58 2021 -0300
+
+    Create .gitignore
+
+[33mcommit d721b9b58e5ab2f24fe5e6ab72f711c9ccde5ade[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Thu Mar 18 23:57:48 2021 -0300
+
+    98 - Listando dados do Firebase Database
+
+[33mcommit 0b2fe101291a8699a5b100c0c3baee2f7e04c3ab[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Thu Mar 18 23:30:58 2021 -0300
+
+    97 - Gravando dados no Firebase Database
+
+[33mcommit 2dde5ca2a4f99c827fa9074f731a24f12e23a167[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Thu Mar 18 21:32:43 2021 -0300
+
+    96 - Adicionar o Firebase a sua Aplicação web
+
+[33mcommit 48d9e88b39172cd39f0bb9b64761fe70e2d78974[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Thu Mar 18 21:00:09 2021 -0300
+
+    95 - Organizando Template de Tipo de Arquivos
+
+[33mcommit d74e8557e93f0751e757906588702a3b7b1121ae[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Thu Mar 18 19:46:00 2021 -0300
+
+    94 - Atualizando View com informações do progresso do Upload
+
+[33mcommit cf2b3bd4273d24c148b39f5a1d5d9e7687c802bb[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Wed Mar 17 23:43:33 2021 -0300
+
+    93 - Recebendo arquivos no Node.JS com Fomidable
+
+[33mcommit 5d4998f12f21bd6adbdf76e72875fb8911423871[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Wed Mar 17 23:20:09 2021 -0300
+
+    92 - Enviando Arquivo usando Ajax e Promise.All()
+
+[33mcommit 375940f666ec9bff27e295f85ddb9bd5310404ac[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Wed Mar 17 22:52:52 2021 -0300
+
+    91 - Criando Controller e Evento Click no botão enviar arquivos
+
+[33mcommit 713a1a85158d0feade415dcb6624dd4843e71653[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Wed Mar 17 20:43:08 2021 -0300
+
+    90 - Criando Projeto Com Express-generator
+
+[33mcommit f50cbeae8fb48976139621b0c4949e5cdce941df[m
+Author: csnascimento <cs_nascimento@yahoo.com.br>
+Date:   Wed Mar 17 01:21:15 2021 -0300
+
+    Initial commit
